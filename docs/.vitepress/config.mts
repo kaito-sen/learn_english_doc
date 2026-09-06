@@ -2,7 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // On GitHub Pages project sites the site is served from /<repo-name>/.
 // `vitepress build` runs with NODE_ENV=production, so local dev stays at '/'.
-const base = process.env.NODE_ENV === 'production' ? '/english_doc_website/' : '/'
+// NOTE: this must match the GitHub repository name (kaito-sen/learn_english_doc).
+const base = process.env.NODE_ENV === 'production' ? '/learn_english_doc/' : '/'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -57,8 +58,7 @@ export default defineConfig({
     outline: { level: [2, 3], label: 'On this page' },
 
     socialLinks: [
-      // TODO: replace with your GitHub repository URL
-      { icon: 'github', link: 'https://github.com/your-username/english_doc_website' }
+      { icon: 'github', link: 'https://github.com/kaito-sen/learn_english_doc' }
     ],
 
     footer: {
