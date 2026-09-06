@@ -42,6 +42,17 @@ export default defineConfig({
         text: 'Grammar',
         items: [
           { text: 'Overview', link: '/grammar/' },
+          {
+            // Collapsible group for a subfolder: docs/grammar/parts_of_speech/
+            text: 'Parts of Speech',
+            collapsed: false, // set to true to collapse by default
+            items: [
+              { text: 'Danh từ', link: '/grammar/parts_of_speech/noun' }
+              // Add more files here:
+              // { text: 'Đại từ', link: '/grammar/parts_of_speech/pronoun' },
+              // { text: 'Tính từ', link: '/grammar/parts_of_speech/adjective' }
+            ]
+          },
           { text: 'Verb Tenses', link: '/grammar/tenses' },
           { text: 'Articles (a, an, the)', link: '/grammar/articles' },
           { text: 'Sentence Structure', link: '/grammar/sentence-structure' }
