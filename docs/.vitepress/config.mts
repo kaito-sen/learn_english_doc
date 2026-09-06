@@ -8,6 +8,18 @@ const base = process.env.NODE_ENV === 'production' ? '/learn_english_doc/' : '/'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: 'en-US',
+
+  // Workaround for a VitePress-on-Windows build bug: `fs.realpathSync` can
+  // return a different drive-letter case (`d:` vs `D:`) than Rollup's module
+  // ids, crashing the build with "Cannot read properties of undefined
+  // (reading 'imports')". This project uses no symlinks, so enabling
+  // preserveSymlinks (which skips realpathSync) is safe and fixes it.
+  // See: resolvePageImports in vitepress/dist/node build bundle.
+  vite: {
+    resolve: {
+      preserveSymlinks: true
+    }
+  },
   title: 'English Grammar Docs',
   description:
     'Clear explanations and examples of English grammar and writing, built entirely with Markdown.',
